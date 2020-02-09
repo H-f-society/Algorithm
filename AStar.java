@@ -49,6 +49,7 @@ public class AStar {
 					nowPoint = nowPoint.parent;
 				}while(nowPoint.ps[0]!=start[0] || nowPoint.ps[1]!=start[1]);
 				result.add(nowPoint);
+				return result;
 			}
 			for(int i=0; i<dires.length; i++) {
 				int x = nowPoint.ps[0] + dires[i][0];
