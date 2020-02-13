@@ -1,8 +1,8 @@
 /*
 * @Author: root
 * @Date:   2019-11-21 22:00:32
-* @Last Modified by:   root
-* @Last Modified time: 2020-02-10 19:05:29
+* @Last Modified by:   H-f-society
+* @Last Modified time: 2020-02-13 21:09:06
 */
 //list()列出文件夹全部内容，列出名字
 //listFile()列出完整路径
@@ -78,8 +78,4 @@ public class CountFilesRow{
 		
 		return map.get(suffix)!=null ? true : false;
 	}
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 7e639d274c1ed6a823796ee263f3ef3984b156cf

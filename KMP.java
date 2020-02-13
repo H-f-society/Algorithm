@@ -1,8 +1,8 @@
 /*
 * @Author: root
 * @Date:   2019-09-19 21:26:46
-* @Last Modified by:   root
-* @Last Modified time: 2019-09-25 21:01:46
+* @Last Modified by:   H-f-society
+* @Last Modified time: 2020-02-13 21:09:39
 */
 import java.util.*;
 
@@ -133,8 +133,4 @@ public class KMP {
 		}
 		return result;
 	}
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 7e639d274c1ed6a823796ee263f3ef3984b156cf
