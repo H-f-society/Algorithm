@@ -2,7 +2,11 @@
 * @Author: root
 * @Date:   2020-02-09 21:42:39
 * @Last Modified by:   root
+<<<<<<< HEAD
 * @Last Modified time: 2020-02-12 05:00:29
+=======
+* @Last Modified time: 2020-02-10 18:56:09
+>>>>>>> 7e639d274c1ed6a823796ee263f3ef3984b156cf
 */
 
 import java.util.*;
@@ -17,7 +21,11 @@ public class AStar {
 		{1, 1, 1, 1, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1},
 		{1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 0, 0, 1, 0, 1, 0, 1, 1, 0, 1},
 		{1, 0, 0, 0, 1, 1, 1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1},
+<<<<<<< HEAD
 		{1, 0, 1, 0, 1, 1, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1, 1, 0, 1},
+=======
+		{1, 0, 1, 0, 1, 1, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1, 1, 1, 1},
+>>>>>>> 7e639d274c1ed6a823796ee263f3ef3984b156cf
 		{1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 1, 1, 0, 1, 0, 0, 0, 0, 0},
 		{1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 1},
 		{1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0}
@@ -53,7 +61,10 @@ public class AStar {
 					nowPoint = nowPoint.parent;
 				}while(nowPoint.ps[0]!=start[0] || nowPoint.ps[1]!=start[1]);
 				result.add(nowPoint);
+<<<<<<< HEAD
 				//printMap(flag);
+=======
+>>>>>>> 7e639d274c1ed6a823796ee263f3ef3984b156cf
 				return result;
 			}
 			for(int i=0; i<dires.length; i++) {
@@ -67,7 +78,14 @@ public class AStar {
 					pos.g = g;
 					pos.f = pos.g + pos.h;
 					pos.parent = nowPoint;
+<<<<<<< HEAD
 					openList.offer(pos);
+=======
+					// if(!openList.isEmpty() && pos.f < openList.peek().f)
+					// 	openList.add(0, pos);
+					// else 
+						openList.offer(pos);
+>>>>>>> 7e639d274c1ed6a823796ee263f3ef3984b156cf
 					closeList.offer(pos);
 					flag[x][y] = 1;
 				}

@@ -78,4 +78,8 @@ public class CountFilesRow{
 		
 		return map.get(suffix)!=null ? true : false;
 	}
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 7e639d274c1ed6a823796ee263f3ef3984b156cf

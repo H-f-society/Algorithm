@@ -133,4 +133,8 @@ public class KMP {
 		}
 		return result;
 	}
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 7e639d274c1ed6a823796ee263f3ef3984b156cf
