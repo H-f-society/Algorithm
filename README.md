@@ -8,6 +8,8 @@
 ##### Search.java --> 广度优先遍历，把里面的 offer() 改成 push() 便是深度优先遍历
 ##### Calculate_Stack.java -->基于栈来实现计算器，目前只能计算（）+-，*/ 有bug一直懒得改
 ##### DP.java --> 动态规划, 计算row * col 的网格中左上角到右下角可行的路径总和
+##### Permute.java --> 全排列算法
+##### Sort.java --> 常见排序算法，冒泡、计数、基数、归并
 ##### CountFilesRow.java --> 不是算法，一个文件操作的小脚本，递归搜索统计一下自己写了多少行代码
 
 ##### (数据结构) SingleLinkList.java --> 单链表的基本操作
