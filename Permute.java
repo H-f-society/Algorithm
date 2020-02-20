@@ -2,12 +2,12 @@
 * @Author: H-f-society
 * @Date:   2020-02-14 01:39:05
 * @Last Modified by:   H-f-society
-* @Last Modified time: 2020-02-14 23:36:31
+* @Last Modified time: 2020-02-16 07:23:59
 */
 import java.util.*;
 
 public class Permute {
-	public static int[] nums = {1, 2, 3};
+	public static int[] nums = {1, 2, 2};
 	public static void main(String[] args) {
 		List<List<Integer>> result = new ArrayList<>();
 		Permute1(nums, 0, nums.length-1, result);
@@ -18,7 +18,8 @@ public class Permute {
 		List<Integer> list = new ArrayList<>();
 		if(start == end) {
 			for(int i : nums) list.add(i);
-			result.add(list);
+			if(!result.contains(list))
+				result.add(list);
 			return;
 		}
 		for(int i=start; i<=end; i++) {
@@ -31,7 +32,7 @@ public class Permute {
 	}
 	public static void swap(int[] nums, int x, int y) {
 		int temp = nums[x];
-		nums[x] = nums[y];
-		nums[y] = temp;
+		nums[x]  = nums[y];
+		nums[y]  = temp;
 	}
 }

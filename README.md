@@ -4,6 +4,7 @@
 
 #### 文件名称
 ##### AStar.java --> A*算法，最短路径寻路
+##### Sudoku.java --> 回溯算法，解数独 (链接JS版本带动画: https://github.com/H-f-society/Sudoku)
 ##### KMP.java --> 字符串的模式匹配，含 穷举、KMP、BoyerMoore
 ##### Search.java --> 广度优先遍历，把里面的 offer() 改成 push() 便是深度优先遍历
 ##### Calculate_Stack.java -->基于栈来实现计算器，目前只能计算（）+-，*/ 有bug一直懒得改
