@@ -2,7 +2,7 @@
 * @Author: root
 * @Date:   2020-02-09 21:42:39
 * @Last Modified by:   H-f-society
-* @Last Modified time: 2020-02-17 22:48:53
+* @Last Modified time: 2020-02-26 16:35:58
 */
 
 import java.util.*;
@@ -18,7 +18,6 @@ public class AStar {
 		{1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 0, 0, 1, 0, 1, 0, 1, 1, 0, 1},
 		{1, 0, 0, 0, 1, 1, 1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1},
 		{1, 0, 1, 0, 1, 1, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1, 1, 0, 1},
-		{1, 0, 1, 0, 1, 1, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1, 1, 1, 1},
 		{1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 1, 1, 0, 1, 0, 0, 0, 0, 0},
 		{1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 1},
 		{1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0}
@@ -43,18 +42,14 @@ public class AStar {
 		openList.offer(new Pos(start));
 		closeList.offer(openList.peek());
 		flag[start[0]][start[1]] = 1;
-		int count = 1;
 		while(!openList.isEmpty()) {
-			count++;
 			Pos nowPoint = openList.poll();
 			if(nowPoint.ps[0]==end[0] && nowPoint.ps[1]==end[1]) {
-				System.out.println(count);
 				do {
 					result.add(nowPoint);
 					nowPoint = nowPoint.parent;
 				}while(nowPoint.ps[0]!=start[0] || nowPoint.ps[1]!=start[1]);
 				result.add(nowPoint);
-				//printMap(flag);
 				return result;
 			}
 			for(int i=0; i<dires.length; i++) {
@@ -64,22 +59,28 @@ public class AStar {
 				//int g = nowPoint.g + OBLIQUE_COST;
 				int g = nowPoint.g + ((nowPoint.ps[0]-pos.ps[0])==(nowPoint.ps[1]-pos.ps[1])  ? STRAIGHT_COST : OBLIQUE_COST);
 				if(Transboundary(map, x, y) && map[x][y]==0 && flag[x][y]==0) {
-					pos.h = Math.abs(pos.ps[0]-end[0]) * Math.abs(pos.ps[0]-end[0]);
+					pos.h = Math.abs(pos.ps[0]-end[0]) * Math.abs(pos.ps[1]-end[1]);
 					pos.g = g;
 					pos.f = pos.g + pos.h;
 					pos.parent = nowPoint;
-					openList.offer(pos);
 					openList.offer(pos);
 					closeList.offer(pos);
 					flag[x][y] = 1;
 				}
 			}
-			openList.sort(new Comparator<Pos>() {
-				@Override
-				public int compare(Pos o1, Pos o2) {
-					return Integer.compare(o1.f, o2.f);
+			// openList.sort(new Comparator<Pos>() {
+			// 	@Override
+			// 	public int compare(Pos o1, Pos o2) {
+			// 		return Integer.compare(o1.f, o2.f);
+			// 	}
+			// });
+			for(int i=0; i<openList.size(); i++) {
+				if(openList.get(i).f < openList.get(0).f) {
+					Pos tmp = openList.get(i);
+					openList.set(i, openList.get(0));
+					openList.set(0, tmp);
 				}
-			});
+			}
 		}
 		return result;
 	}
@@ -98,8 +99,15 @@ public class AStar {
     	}
     }
  	public static void main(String[] args) {
+ 		Long startTime, endTime;
+
  		AStar astar = new AStar();
+
+ 		startTime = System.nanoTime();
  		List<Pos> result = astar.searchPath(startPoint, endPoint);
+		endTime = System.nanoTime();
+		System.out.println("runTime: " + (endTime - startTime) + "ns");
+
  		System.out.println(result.size());
 		for(int i=result.size()-1; i>=0; i--) {
 			System.out.print("["+result.get(i).ps[0] + ", " + result.get(i).ps[1] + "]-->");
