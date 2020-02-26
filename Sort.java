@@ -2,7 +2,7 @@
 * @Author: root
 * @Date:   2020-02-11 01:41:33
 * @Last Modified by:   H-f-society
-* @Last Modified time: 2020-02-15 01:16:47
+* @Last Modified time: 2020-02-26 15:33:36
 */
 import java.util.*;
 
@@ -66,7 +66,7 @@ public class Sort {
 		if(start >= end) return;
 		int mid = ((end-start) >> 1) + start;
 		int start1 = start, end1 = mid;
-		int start2 = mid + 1, end2 = end;
+		int start2 = mid+1, end2 = end;
 		mergeSort(nums, result, start1, end1);
 		mergeSort(nums, result, start2, end2);
 		int i = start;
@@ -81,8 +81,8 @@ public class Sort {
 	}
 	public static void printArr(int[] nums, String sortName) {
 		System.out.print(sortName + ": ");
-		for(int i=0; i<nums.length; i++)
-			System.out.print(nums[i] + ", ");
-		System.out.println();
+		List<Integer> list = new ArrayList<>();
+		for(int i=0; i<nums.length; i++) list.add(nums[i]);
+		System.out.println(list);
 	}
 }
